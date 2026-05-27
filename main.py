@@ -27,14 +27,9 @@ cache = {
 
 
 def format_signal_response(data: dict) -> str:
-    """
-    Formats raw signal data into plaintext matching the screenshot layout.
-    Adjust keys here if your firmware returns slightly different names.
-    """
     if not data:
         return "Signal data not yet available."
 
-    # Safe getter: tries exact key, then common Huawei API variants
     def get_val(*keys):
         for k in keys:
             if k in data:
